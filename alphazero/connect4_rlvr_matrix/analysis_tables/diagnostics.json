@@ -1,0 +1,45 @@
+{
+  "formal_runs": 15,
+  "groups": {
+    "baseline": [
+      0,
+      1,
+      2
+    ],
+    "noise_c001": [
+      0,
+      1,
+      2
+    ],
+    "noise_c005": [
+      0,
+      1,
+      2
+    ],
+    "noise_c010": [
+      0,
+      1,
+      2
+    ],
+    "nonshared": [
+      0,
+      1,
+      2
+    ]
+  },
+  "figures": [
+    "runs/analysis_figures/01_rollout_p_h_i.png",
+    "runs/analysis_figures/02_entropy_curves.png",
+    "runs/analysis_figures/03_reward_information.png",
+    "runs/analysis_figures/04_noise_training_effects.png",
+    "runs/analysis_figures/05_offline_val_performance.png",
+    "runs/analysis_figures/06_offline_train_val_gap.png",
+    "runs/analysis_figures/07_shared_vs_nonshared.png"
+  ],
+  "tables": [
+    "runs/analysis_tables/final_by_run.csv",
+    "runs/analysis_tables/final_by_group.csv",
+    "runs/analysis_tables/step_curves_by_group.csv",
+    "runs/analysis_tables/offline_by_group.csv"
+  ]
+}
