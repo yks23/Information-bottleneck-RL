@@ -1,0 +1,50 @@
+seed: 0
+run_name: connect4_gpu_nonshared_rollout32
+output_dir: runs
+device: cuda
+
+wandb:
+  project: information-bottleneck-alphazero
+  mode: offline
+
+env:
+  name: connect4
+
+model:
+  hidden_size: 192
+  num_blocks: 4
+
+mcts:
+  num_rollouts: 32
+  c_puct: 1.5
+  temperature: 1.0
+
+training:
+  steps: 12000
+  episodes_per_step: 8
+  batch_size: 256
+  replay_capacity: 300000
+  learning_rate: 0.0005
+  eval_interval: 50
+  checkpoint_interval: 500
+  keep_last_checkpoints: 5
+
+evaluation:
+  position_eval:
+    enabled: true
+    train_size: 256
+    valid_size: 256
+    min_moves: 4
+    max_moves: 18
+    solver_depth: 4
+    top_k: 3
+    batch_size: 256
+
+reward:
+  correctness_weight: 1.0
+  format_weight: 0.25
+  noise_c: 0.0
+
+self_play:
+  shared_params: false
+  opponent_update_interval: 500

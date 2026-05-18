@@ -1,0 +1,39 @@
+seed: 0
+run_name: tictactoe_smoke
+output_dir: runs
+device: cpu
+
+wandb:
+  project: information-bottleneck-alphazero
+  mode: disabled
+
+env:
+  name: tictactoe
+
+model:
+  hidden_size: 64
+  num_blocks: 2
+
+mcts:
+  num_rollouts: 8
+  c_puct: 1.5
+  temperature: 1.0
+
+training:
+  steps: 20
+  episodes_per_step: 2
+  batch_size: 16
+  replay_capacity: 2000
+  learning_rate: 0.001
+  eval_interval: 5
+  checkpoint_interval: 10
+  keep_last_checkpoints: 3
+
+reward:
+  correctness_weight: 1.0
+  format_weight: 0.1
+  noise_c: 0.0
+
+self_play:
+  shared_params: true
+  opponent_update_interval: 10

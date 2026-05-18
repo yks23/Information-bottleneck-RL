@@ -1,0 +1,50 @@
+seed: 0
+run_name: connect4_small_cpu_nonshared_rollout32
+output_dir: runs
+device: cpu
+
+wandb:
+  project: information-bottleneck-alphazero
+  mode: disabled
+
+env:
+  name: connect4_small
+
+model:
+  hidden_size: 96
+  num_blocks: 2
+
+mcts:
+  num_rollouts: 32
+  c_puct: 1.5
+  temperature: 1.0
+
+training:
+  steps: 300
+  episodes_per_step: 4
+  batch_size: 64
+  replay_capacity: 50000
+  learning_rate: 0.0007
+  eval_interval: 10
+  checkpoint_interval: 50
+  keep_last_checkpoints: 3
+
+evaluation:
+  position_eval:
+    enabled: true
+    train_size: 32
+    valid_size: 32
+    min_moves: 2
+    max_moves: 10
+    solver_depth: 3
+    top_k: 2
+    batch_size: 64
+
+reward:
+  correctness_weight: 1.0
+  format_weight: 0.25
+  noise_c: 0.0
+
+self_play:
+  shared_params: false
+  opponent_update_interval: 50
