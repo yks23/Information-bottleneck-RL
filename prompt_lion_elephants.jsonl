@@ -1,0 +1,1 @@
+{"prompt": "a lion and four elephants", "atom_count": 3, "vqa_list": [["How many lions are in the image?", "one"], ["Are there any lions in the image?", "Yes"], ["How many elephants are in the image?", "four"], ["Are there any elephants in the image?", "Yes"]], "skills": ["count", "object", "count", "object"]}
